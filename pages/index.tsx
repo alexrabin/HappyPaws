@@ -65,9 +65,13 @@ export default function Home({ breeds }: { breeds: Breed[] }) {
         </a>
       </Description>
       <Container center>
-        {filteredBreeds.map((b, i) => {
-          return <Dog breed={b} key={i} />;
-        })}
+        {filteredBreeds.length > 0 ? (
+          filteredBreeds.map((b, i) => {
+            return <Dog breed={b} key={i} />;
+          })
+        ) : (
+          <h3>No Doggos Found :(</h3>
+        )}
       </Container>
     </MainLayout>
   );
