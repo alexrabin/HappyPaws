@@ -25,7 +25,11 @@ export default function Home({ breeds }: { breeds: Breed[] }) {
 
   useEffect(() => {
     if (searchInput.length > 0) {
-      setFilteredBreeds(breeds.filter((a) => a.name.includes(searchInput)));
+      setFilteredBreeds(
+        breeds.filter((a) =>
+          a.name.toLowerCase().includes(searchInput.toLowerCase())
+        )
+      );
     } else {
       setFilteredBreeds(breeds);
     }

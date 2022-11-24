@@ -1,15 +1,16 @@
 import { GetStaticProps } from "next";
 import React from "react";
-import Breed from "../../models/Breed";
-import MainLayout from "../../components/MainLayout";
+import Breed from "../../../models/Breed";
+import MainLayout from "../../../components/MainLayout";
 import {
   getAllBreeds,
   getAllImagesForBreed,
   getAllSubBreeds,
-  getRandomBreedImage,
-} from "../../services/dogService";
-import { Container } from "../../components/Container";
-import DogImage from "../../components/DogImage";
+  getRandomSubBreedImage,
+} from "../../../services/dogService";
+import { Container } from "../../../components/Container";
+import DogImage from "../../../components/DogImage";
+import Dog from "../../../components/Dog";
 const BreedPage = ({
   name,
   images,
@@ -17,11 +18,25 @@ const BreedPage = ({
 }: {
   name: string;
   images: string[];
-  subBreeds: Breed;
+  subBreeds?: Breed[];
 }) => {
   return (
     <MainLayout>
       <h1>{name.toUpperCase()}</h1>
+
+      {subBreeds !== undefined && subBreeds.length > 0 ? (
+        <>
+          <h2>Sub Breeds</h2>
+          <Container center>
+            {subBreeds.map((b, i) => (
+              <Dog key={i} breed={b} size={100} />
+            ))}
+          </Container>
+        </>
+      ) : (
+        <></>
+      )}
+      <h2>Images</h2>
       <Container center>
         {images.map((b, i) => {
           return <DogImage src={b} key={i} alt={b} includeMargin />;
@@ -52,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  let subBreedsData = [];
+  let subBreedsData;
   const allDogImagesRes = await getAllImagesForBreed(breed);
   try {
     const subBreedsRes = await getAllSubBreeds(breed);
@@ -61,7 +76,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
         subBreedsRes.data.message.map(async (name: string) => {
           return {
             name,
-            imageUrl: await (await getRandomBreedImage(name)).data.message,
+            breed,
+            imageUrl: await (
+              await getRandomSubBreedImage(breed, name)
+            ).data.message,
           };
         })
       );

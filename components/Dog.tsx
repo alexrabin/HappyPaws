@@ -16,12 +16,21 @@ const Container = styled.div`
     text-decoration: none;
     color: black;
   }
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  :hover {
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
-const Dog = ({ breed }: { breed: Breed }) => {
+const Dog = ({ breed, size = 250 }: { breed: Breed; size?: number }) => {
   return (
     <Container className="noselect">
-      <Link href={`/breed/${breed.name}`}>
-        <Image src={breed.imageUrl} alt={breed.name} />
+      <Link
+        href={`/breed/${breed.breed ? `${breed.breed}/` : ""}${breed.name}`}
+      >
+        <Image src={breed.imageUrl} alt={breed.name} size={size} />
         <Description>{breed.name.toUpperCase()}</Description>
       </Link>
     </Container>

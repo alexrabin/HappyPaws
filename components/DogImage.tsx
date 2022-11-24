@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 interface Props {
   includeMargin?: boolean;
+  size?: number;
 }
 
 const Image = styled.img<Props>`
-  width: 250px;
-  height: 250px;
+  width: ${(props) => (props.size ? props.size : "250")}px;
+  height: ${(props) => (props.size ? props.size : "250")}px;
   object-fit: cover;
+  border-radius: 5px;
   ${(props) => (props.includeMargin ? "margin: 1rem;" : "")}
 `;
 export default Image;
