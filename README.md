@@ -6,5 +6,6 @@ Happy Paws also uses:
 * [Styled Components](https://styled-components.com/)
 * [Axios](https://axios-http.com/docs/intro)
 * [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar)
-        
+* [favicon.io](https://favicon.io)
+
  Created by [Alex Rabin](https://alexrabin.com)

@@ -54,6 +54,11 @@ const AboutPage = () => {
               nextjs-progressbar
             </a>
           </li>
+          <li>
+            <a href="https://favicon.io" target={"_blank"} rel="noreferrer">
+              favicon.io
+            </a>
+          </li>
         </ul>
       </Description>
       <Description>
