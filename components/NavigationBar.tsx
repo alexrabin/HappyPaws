@@ -4,11 +4,12 @@ import styled from "styled-components";
 
 const Container = styled.div`
   overflow: hidden;
-  background-color: #000;
+  background-color: #0099fa;
   top: 0;
   left: 0;
   position: sticky;
-
+  display: flex;
+  justify-content: space-between;
   * {
     float: left;
   }
@@ -21,7 +22,7 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled(Link)`
+const StyledLink = styled(Link)`
   color: white;
   font-weight: bold;
 `;
@@ -35,9 +36,10 @@ const BarLink = styled(Link)`
 const NavigationBar = () => {
   return (
     <Container>
-      <Title className="noselect" href="/">
+      <StyledLink className="noselect" href="/">
         Happy Paws
-      </Title>
+      </StyledLink>
+      <BarLink href="/about">About</BarLink>
     </Container>
   );
 };

@@ -9,7 +9,7 @@ import { getAllBreeds, getRandomBreedImage } from "../services/dogService";
 const SearchInput = styled.input`
   min-width: 300px;
   font-size: 16px;
-  padding: 5px;
+  padding: 15px;
   border-radius: 5px;
   border-width: 1px;
 `;

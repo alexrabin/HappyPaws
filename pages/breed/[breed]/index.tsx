@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import React from "react";
 import Breed from "../../../models/Breed";
 import MainLayout from "../../../components/MainLayout";
 import {
@@ -21,7 +20,7 @@ const BreedPage = ({
   subBreeds?: Breed[];
 }) => {
   return (
-    <MainLayout>
+    <MainLayout documentTitle={name.toUpperCase()}>
       <h1>{name.toUpperCase()}</h1>
 
       {subBreeds !== undefined && subBreeds.length > 0 ? (

@@ -7,7 +7,6 @@ import {
 } from "../../../services/dogService";
 import { Container } from "../../../components/Container";
 import DogImage from "../../../components/DogImage";
-import Dog from "../../../components/Dog";
 import Link from "next/link";
 const SubBreedPage = ({
   breed,
@@ -19,7 +18,9 @@ const SubBreedPage = ({
   images: string[];
 }) => {
   return (
-    <MainLayout>
+    <MainLayout
+      documentTitle={subBreed.toUpperCase() + " " + breed.toUpperCase()}
+    >
       <Link href={`/breed/${breed}`}> {"View all " + breed + " images"}</Link>
       <h1>{subBreed.toUpperCase() + " " + breed.toUpperCase()}</h1>
       <Container center>
