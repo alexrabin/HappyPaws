@@ -8,7 +8,7 @@ export const Container = styled.div<Props>`
   flex-wrap: wrap;
   justify-content: ${(p) => (p.center ? "center" : " flex-start")};
   align-items: center;
-  margin: 2rem;
+  margin: 1.5rem;
 `;
 
 export const Column = styled.div`

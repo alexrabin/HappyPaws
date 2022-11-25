@@ -2,17 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import MainLayout from "../components/MainLayout";
 
-const Description = styled.p`
+const AboutDescriptionContainer = styled.div`
   a {
     color: #0099fa;
   }
+  margin: 0.5rem;
 `;
 
 const AboutPage = () => {
   return (
     <MainLayout documentTitle="About">
       <h1>About</h1>
-      <Description>
+      <AboutDescriptionContainer>
         This project uses{" "}
         <a href="https://nextjs.org/" target={"_blank"} rel="noreferrer">
           Next.js
@@ -22,9 +23,9 @@ const AboutPage = () => {
           The Dog API
         </a>
         .
-      </Description>
+      </AboutDescriptionContainer>
 
-      <Description>
+      <AboutDescriptionContainer>
         Happy Paws also uses:
         <ul>
           <li>
@@ -60,13 +61,13 @@ const AboutPage = () => {
             </a>
           </li>
         </ul>
-      </Description>
-      <Description>
+      </AboutDescriptionContainer>
+      <AboutDescriptionContainer>
         Created by{" "}
         <a href="https://alexrabin.com" target={"_blank"} rel="noreferrer">
           Alex Rabin
         </a>
-      </Description>
+      </AboutDescriptionContainer>
     </MainLayout>
   );
 };

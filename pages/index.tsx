@@ -8,7 +8,7 @@ import { getAllBreeds, getRandomBreedImage } from "../services/dogService";
 
 const SearchContainer = styled.div`
   position: sticky;
-  top: 48px;
+  top: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -26,6 +26,8 @@ const Description = styled.p`
   a {
     color: #0099fa;
   }
+  text-align: center;
+  white-space: pre-wrap;
 `;
 export default function Home({ breeds }: { breeds: Breed[] }) {
   const [filteredBreeds, setFilteredBreeds] = useState(breeds);
@@ -62,6 +64,11 @@ export default function Home({ breeds }: { breeds: Breed[] }) {
         Powered by{" "}
         <a href="https://dog.ceo/dog-api/" target={"_blank"} rel="noreferrer">
           The Dog API
+        </a>
+        {"\n\n"}
+        Put together by{" "}
+        <a href="https://alexrabin.com" target={"_blank"} rel="noreferrer">
+          Alex Rabin
         </a>
       </Description>
       <Container center>
