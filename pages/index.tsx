@@ -86,7 +86,7 @@ export default function Home({ breeds }: { breeds: Breed[] }) {
 
 export const getStaticProps = async () => {
   const allBreeds = await getAllBreeds();
-  const breedNames = Object.entries(allBreeds.data.message).map((a) => a[0]);
+  const breedNames = Object.keys(allBreeds.data.message);
   const breeds = await Promise.all(
     breedNames.map(async (name) => {
       return {

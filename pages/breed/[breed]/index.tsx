@@ -38,7 +38,16 @@ const BreedPage = ({
       <h2>Images</h2>
       <Container center>
         {images.map((b, i) => {
-          return <DogImage src={b} key={i} alt={b} includeMargin />;
+          return (
+            <DogImage
+              src={b}
+              key={i}
+              alt={b}
+              includeMargin
+              width={250}
+              height={250}
+            />
+          );
         })}
       </Container>
     </MainLayout>
@@ -49,7 +58,7 @@ export default BreedPage;
 
 export const getStaticPaths = async () => {
   const allBreeds = await getAllBreeds();
-  const breedNames = Object.entries(allBreeds.data.message).map((a) => a[0]);
+  const breedNames = Object.keys(allBreeds.data.message);
   return {
     paths: breedNames.map((name) => {
       return { params: { breed: name } };

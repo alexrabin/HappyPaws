@@ -37,7 +37,12 @@ const Dog = ({ breed, size = 250 }: { breed: Breed; size?: number }) => {
       <Link
         href={`/breed/${breed.breed ? `${breed.breed}/` : ""}${breed.name}`}
       >
-        <Image src={breed.imageUrl} alt={breed.name} size={size} />
+        <Image
+          src={breed.imageUrl[0]}
+          alt={breed.name}
+          width={size}
+          height={size}
+        />
         <Description>{breed.name.toUpperCase()}</Description>
       </Link>
     </Container>

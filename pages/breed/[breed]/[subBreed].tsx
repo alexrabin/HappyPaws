@@ -25,7 +25,16 @@ const SubBreedPage = ({
       <h1>{subBreed.toUpperCase() + " " + breed.toUpperCase()}</h1>
       <Container center>
         {images.map((b, i) => {
-          return <DogImage src={b} key={i} alt={b} includeMargin />;
+          return (
+            <DogImage
+              src={b}
+              key={i}
+              alt={b}
+              includeMargin
+              width={250}
+              height={250}
+            />
+          );
         })}
       </Container>
     </MainLayout>
@@ -36,7 +45,7 @@ export default SubBreedPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allBreeds = await getAllBreeds();
-  const breedNames = Object.entries(allBreeds.data.message).map((a) => a);
+  const breedNames = Object.entries(allBreeds.data.message);
   const paths: any[] = [];
   breedNames.forEach((breed) => {
     if (breed[1]) {
